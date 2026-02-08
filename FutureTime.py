@@ -7,24 +7,17 @@
 import datetime
 
 def main():
-  #getting current time from system, storing to variable
-  
-    currentHour = int(input("give me the current hour: "))
-    currentMinute = int(input("give me the current minutes: "))
+    tz =datetime.timezone(datetime.timedelta(hours=+6))
+    now=datetime.datetime.now(tz)
 
-     
+    #getting current time from system, storing to variable
+
   #TODO:
-    Number_hours = int(input("Give me a number of hours: "))
-    Number_minutes = int(input("Give me a number of minutes: "))
-    Totalmin = (currentHour * 60) + (currentMinute) + (Number_hours * 60) +Number_minutes
-    
-    Future_hours= (Totalmin//60)
-   
-    future_min=(Totalmin/60)-(Future_hours)
-    New_min=(future_min * 60)
-
+    hour = int(input("Give me a number of hours: "))
+    minute = int(input("Give me a number of minutes: "))
+    future_time = now + datetime.timedelta(hours=hour , minutes=minute)
     print("The future time will be: ")
-    print(f"{Future_hours}:{New_min}")
+    print(f"{future_time.hour}:{future_time.minute:02d}")
 
   #Do not use any if statements in calculating the time.
 
